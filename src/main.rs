@@ -22,8 +22,7 @@ async fn main_endpoint(_req: HttpRequest) -> impl Responder {
 
 #[actix_web::get("/{name}")]
 async fn name_endpoint(req: HttpRequest) -> impl Responder {
-
-    // Can also do this to get path parameters
+    // Get the name url parameter
     let name: &str = match req.match_info().get("name") {
         Some(name) => name,
         None => "World",
